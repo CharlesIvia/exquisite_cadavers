@@ -32,3 +32,20 @@ def get_verbs():
         if len(verb) > 2:
             verbs_list.append(verb)
     return verbs_list
+
+
+# uncountable noun
+
+uncountable_nouns = []
+
+
+def get_un_nouns():
+    URL = "https://englishstudyhere.com/nouns/uncountable-noun-list-in-english/"
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    ps = soup.find_all("p")
+    for p in ps:
+        noun = p.text
+        if len(noun) < 10 and len(noun) > 3:
+            uncountable_nouns.append(noun)
+    return uncountable_nouns
