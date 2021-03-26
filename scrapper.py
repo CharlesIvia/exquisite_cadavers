@@ -49,3 +49,19 @@ def get_un_nouns():
         if len(noun) < 10 and len(noun) > 3:
             uncountable_nouns.append(noun)
     return uncountable_nouns
+
+
+# abstract nouns
+
+abstract_nouns = []
+
+
+def get_abstract_nouns():
+    URL = "https://englishstudyhere.com/nouns/abstract-nouns-list/"
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    lis = soup.find_all("li")
+    for li in lis:
+        noun = li.text
+        abstract_nouns.append(noun)
+    return abstract_nouns[88:-58]
