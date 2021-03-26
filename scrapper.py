@@ -65,3 +65,22 @@ def get_abstract_nouns():
         noun = li.text
         abstract_nouns.append(noun)
     return abstract_nouns[88:-58]
+
+
+# collective nouns
+
+collective_nouns = []
+
+
+def get_collective_nouns():
+    URL = "https://englishstudyhere.com/nouns/200-examples-of-collective-nouns/"
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    bs = soup.find_all("b")
+    for b in bs:
+        noun = "a " + b.text + " of"
+        collective_nouns.append(noun)
+    return collective_nouns
+
+
+print(get_collective_nouns())
