@@ -81,6 +81,3 @@ def get_collective_nouns():
         noun = "a " + b.text + " of"
         collective_nouns.append(noun)
     return collective_nouns
-
-
-print(get_collective_nouns())
